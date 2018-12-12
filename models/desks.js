@@ -23,5 +23,6 @@ let DeskSchema=new Schema({
     }
 });
 
+
 let model=mongoose.model('desk',DeskSchema);
 module.exports=model;

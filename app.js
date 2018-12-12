@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost/projectDB', { useNewUrlParser: true});
 let app=express();
 
 app.use(express.json());
-app.use(express.urlencoded({extend:true}));
+app.use(express.urlencoded({extended:true}));
 
 app.use('/api',MainRouter);
 
@@ -25,4 +25,4 @@ app.use((err,req,res,next)=>{
     })
 });
 
- app.listen(3000,()=>{console.log('Listening..')});
+ app.listen(3000, ()=> console.log('Listening..'));
