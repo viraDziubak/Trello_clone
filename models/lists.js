@@ -15,8 +15,8 @@ let ListSchema=new Schema({
 
     },
     cards:{
-        type:[],
-
+        type: Schema.ObjectId,
+        ref: 'card'
     }
 });
 

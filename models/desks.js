@@ -14,12 +14,13 @@ let DeskSchema=new Schema({
         type:String,
 
     },
-    list:{
-        type:[],
-
+    list: {
+        type: Schema.ObjectId,
+        ref: 'list'
     },
-    user:{
-        type:[]
+    group: {
+        type: Schema.ObjectId,
+        ref: 'group'
     }
 });
 
