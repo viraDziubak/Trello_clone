@@ -1,27 +1,26 @@
-let mongoose =require('mongoose');
-let Schema=mongoose.Schema;
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
-let DeskSchema=new Schema({
-    name:{
-        type:String,
-        required:true
+let DeskSchema = new Schema({
+    name: {
+        type: String,
+        required: true
     },
-    description:{
-        type:String,
+    description: {
+        type: String,
 
     },
     date: {
-        type:String,
+        type: String,
 
     },
-    list:{
-        type:[],
+    list: {
+        type: [],
 
     },
-    user:{
-        type:[]
+    user: {
+        type: []
     }
 });
 
-let model=mongoose.model('desk',DeskSchema);
-module.exports=model;
+module.exports = mongoose.model('desk', DeskSchema);
