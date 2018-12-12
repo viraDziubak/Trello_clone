@@ -21,6 +21,10 @@ let UserSchema=new Schema({
     email:{
         type:String,
 
+    },
+    desk: {
+        type: Schema.ObjectId,
+        ref: 'desk'
     }
 });
 

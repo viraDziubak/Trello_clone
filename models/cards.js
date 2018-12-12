@@ -12,7 +12,7 @@ let CardSchema=new Schema({
     },
     date: {
         type:String,
-
+    
     },
     cardsMessage:{
         type:String,
