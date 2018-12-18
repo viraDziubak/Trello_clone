@@ -1,13 +1,14 @@
 let express = require('express');
-let mongoose = require('mongoose')
+let mongoose = require('mongoose');
 let MainRouter=require('./routers/main-router');
-
-let controlError=require('./error/controllerError')
+let cors=require('cors');
+let controlError=require('./error/controllerError');
 
 mongoose.connect('mongodb://localhost/projectDB', { useNewUrlParser: true});
 
 let app=express();
 
+app.use(cors({origin:true}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
