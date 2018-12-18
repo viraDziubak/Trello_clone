@@ -1,14 +1,13 @@
 let router=require('express').Router();
-let controlError=require('../error/controllerError')
-let Card= require('../models/cards');
 let cardControllers = require('../controllers/card-controller');
 
-router.get('/:id', cardControllers.findOne);
+router.route('/')
+  .get(cardControllers.findAll)
+  .post(cardControllers.create);
 
-router.get('/', cardControllers.findAll);
-router.post('/', cardControllers.create);
-router.put('/:id', cardControllers.update);
-router.delete('/:id', cardControllers.delete);
-
+router.route('/:id')
+  .get(cardControllers.findOne)
+  .put(cardControllers.update)
+  .delete(cardControllers.delete);
 
 module.exports=router;

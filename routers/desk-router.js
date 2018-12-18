@@ -1,15 +1,13 @@
 let router=require('express').Router();
-let controlError=require('../error/controllerError');
 let deskControllers = require('../controllers/desk-controller');
 
-let Desk=require('../models/desks');
+router.route('/')
+  .get(deskControllers.findAll)
+  .post(deskControllers.create);
 
-
-router.get('/:id', deskControllers.findOne);
-
-router.get('/', deskControllers.findAll);
-router.post('/', deskControllers.create);
-router.put('/:id', deskControllers.update);
-router.delete('/:id', deskControllers.delete);
+router.route('/:id')
+  .get(deskControllers.findOne)
+  .put(deskControllers.update)
+  .delete(deskControllers.delete);
 
 module.exports=router;
