@@ -1,6 +1,7 @@
-const List = require('../models/lists');
+let List = require('../models/lists');
+let controlError=require('../error/controllerError');
 
-const listControllers = {};
+let listControllers = {};
 
 listControllers.findOne = async(req, res, next)=>{
   try {

@@ -1,15 +1,13 @@
 let router=require('express').Router();
-let controlError=require('../error/controllerError');
 let listControllers = require('../controllers/list-controller');
 
-let List=require('../models/lists');
+router.route('/')
+  .get(listControllers.findAll)
+  .post(listControllers.create);
 
-
-router.get('/:id', listControllers.findOne);
-
-router.get('/', listControllers.findAll);
-router.post('/', listControllers.create);
-router.put('/:id', listControllers.update);
-router.delete('/:id', listControllers.delete);
+router.route('/:id')
+  .get(listControllers.findOne)
+  .put(listControllers.update)
+  .delete(listControllers.delete);
 
 module.exports=router;
