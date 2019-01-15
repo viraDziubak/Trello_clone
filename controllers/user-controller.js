@@ -1,11 +1,11 @@
-let User = require('../models/users');
+const User = require('../models/Users');
 
-let userControllers = {};
+const userControllers = {};
 
 userControllers.findOne = async(req, res, next)=>{
   try {
-      let id=req.params.id;
-      let user= await User.findById(id);
+      const id=req.params.id;
+      const user= await User.findById(id);
       res.status(200).json(user);
   }
   catch (e){
@@ -24,7 +24,7 @@ userControllers.findAll = async(req, res, next)=>{
 
 userControllers.create = async(req, res, next)=>{
   try {
-      let user= await User.create(req.body);
+      const user= await User.create(req.body);
       res.json(user);
   }
   catch (e) {
@@ -34,7 +34,7 @@ userControllers.create = async(req, res, next)=>{
 
 userControllers.update = async(req, res, next)=>{
   try{
-      let user= await User.findByIdAndUpdate(req.params.id,req.body,{new:true});
+      const user= await User.findByIdAndUpdate(req.params.id,req.body,{new:true});
       res.json(user);
   }
   catch (e) {
@@ -45,7 +45,7 @@ userControllers.update = async(req, res, next)=>{
 
 userControllers.delete = async(req, res, next)=>{
   try{
-      let user= await User.findByIdAndRemove(req.params.body,req.body,{new:true});
+      const user= await User.findByIdAndRemove(req.params.body,req.body,{new:true});
       res.json(user);
   }
   catch (e) {

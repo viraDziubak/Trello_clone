@@ -1,10 +1,7 @@
-let router=require('express').Router();
-let controlError=require('../error/controllerError')
-let Card= require('../models/cards');
-let cardControllers = require('../controllers/card-controller');
+const router=require('express').Router();
+const cardControllers = require('../controllers/card-controller');
 
 router.get('/:id', cardControllers.findOne);
-
 router.get('/', cardControllers.findAll);
 router.post('/', cardControllers.create);
 router.put('/:id', cardControllers.update);

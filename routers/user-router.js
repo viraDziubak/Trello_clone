@@ -2,7 +2,7 @@ let router=require('express').Router();
 let controlError=require('../error/controllerError');
 let userControllers = require('../controllers/user-controller');
 
-let User=require('../models/users');
+let User=require('../models/Users');
 router.get('/:id', userControllers.findOne);
 
 router.get('/', userControllers.findAll);

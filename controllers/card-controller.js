@@ -1,4 +1,4 @@
-let Card= require('../models/cards');
+let Card= require('../models/Cards');
 
 let cardControllers = {};
 
@@ -9,7 +9,7 @@ cardControllers.findOne = async(req, res, next)=>{
       res.json(card);
   }
   catch (e){
-      next (new controlError(e.message,400));
+      next (new controlError(e.message,500));
   }
 };
 
@@ -18,7 +18,7 @@ cardControllers.findAll = async(req, res, next)=>{
       res.json(await Card.find());
   }
   catch (e) {
-      next(new controlError(e.message,400))
+      next(new controlError(e.message,500))
   }
 };
 
@@ -28,7 +28,7 @@ cardControllers.create = async(req, res, next)=>{
       res.json(card);
   }
   catch (e) {
-      next(new controlError(e.message,400))
+      next(new controlError(e.message,500))
   }
 };
 
@@ -38,7 +38,7 @@ cardControllers.update = async(req, res, next)=>{
       res.json(card);
   }
   catch (e) {
-      next(new controlError(e.message,400))
+      next(new controlError(e.message,500))
   }
 
 };
@@ -49,7 +49,7 @@ cardControllers.delete = async(req, res, next)=>{
       res.json(card);
   }
   catch (e) {
-      next(new controlError(e.message,400))
+      next(new controlError(e.message,500))
   }
 
 };

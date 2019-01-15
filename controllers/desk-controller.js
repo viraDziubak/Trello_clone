@@ -1,6 +1,6 @@
-let Desk = require('../models/desks');
+const Desk = require('../models/Desks');
 
-let deskControllers = {};
+const deskControllers = {};
 
 deskControllers.findOne = async(req, res, next)=>{
   try {
@@ -9,7 +9,7 @@ deskControllers.findOne = async(req, res, next)=>{
       res.json(desk);
   }
   catch (e){
-      next (new controlError(e.message,400));
+      next (new controlError(e.message,500));
   }
 };
 
@@ -18,7 +18,7 @@ deskControllers.findAll = async(req, res, next)=>{
       res.json(await Desk.find());
   }
   catch (e) {
-      next(new controlError(e.message,400))
+      next(new controlError(e.message,500))
   }
 };
 
@@ -28,7 +28,7 @@ deskControllers.create = async(req, res, next)=>{
       res.json(desk);
   }
   catch (e) {
-      next(new controlError(e.message,400))
+      next(new controlError(e.message,500))
   }
 };
 
@@ -38,7 +38,7 @@ deskControllers.update = async(req, res, next)=>{
       res.json(desk);
   }
   catch (e) {
-      next(new controlError(e.message,400))
+      next(new controlError(e.message,500))
   }
 
 };
@@ -49,7 +49,7 @@ deskControllers.delete = async(req, res, next)=>{
       res.json(desk);
   }
   catch (e) {
-      next(new controlError(e.message,400))
+      next(new controlError(e.message,500))
   }
 
 };

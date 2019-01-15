@@ -1,7 +1,7 @@
-let mongoose =require('mongoose');
-let Schema=mongoose.Schema;
+const mongoose =require('mongoose');
+const Schema=mongoose.Schema;
 
-let ListSchema=new Schema({
+const DeskSchema=new Schema({
     name:{
         type:String,
         required:true
@@ -14,11 +14,15 @@ let ListSchema=new Schema({
         type:String,
 
     },
-    cards:{
+    list:{
         type:[],
 
+    },
+    user:{
+        type:[]
     }
 });
 
-let model=mongoose.model('list',ListSchema);
+
+const model=mongoose.model('desk',DeskSchema);
 module.exports=model;

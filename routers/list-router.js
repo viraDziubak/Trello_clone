@@ -1,8 +1,5 @@
-let router=require('express').Router();
-let controlError=require('../error/controllerError');
-let listControllers = require('../controllers/list-controller');
-
-let List=require('../models/lists');
+const router=require('express').Router();
+const listControllers = require('../controllers/list-controller');
 
 
 router.get('/:id', listControllers.findOne);
