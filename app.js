@@ -1,13 +1,15 @@
 let express = require('express');
-let mongoose = require('mongoose')
+let mongoose = require('mongoose');
+const morgan = require('morgan')
 let MainRouter=require('./routers/main-router');
-
+let cors = require('cors');
 let controlError=require('./error/controllerError')
 
 mongoose.connect('mongodb://localhost/projectDB', { useNewUrlParser: true});
 
 let app=express();
-
+app.use(morgan('dev'))
+app.use(cors({origin: true}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 

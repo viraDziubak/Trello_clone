@@ -14,9 +14,9 @@ let ListSchema=new Schema({
         type:String,
 
     },
-    cards:{
+    desk:{
         type: Schema.ObjectId,
-        ref: 'card'
+        ref: 'desk'
     }
 });
 

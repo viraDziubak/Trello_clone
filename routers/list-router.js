@@ -10,4 +10,6 @@ router.route('/:id')
   .put(listControllers.update)
   .delete(listControllers.delete);
 
+  router.route('/deskList/:deskId').get(listControllers.findByDeskId);
+
 module.exports=router;

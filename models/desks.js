@@ -14,9 +14,9 @@ let DeskSchema=new Schema({
         type:String,
 
     },
-    list: {
+    user: {
         type: Schema.ObjectId,
-        ref: 'list'
+        ref: 'user'
     },
     group: {
         type: Schema.ObjectId,

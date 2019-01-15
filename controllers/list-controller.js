@@ -3,6 +3,23 @@ let controlError=require('../error/controllerError');
 
 let listControllers = {};
 
+listControllers.findByDeskId = async (req, res, next)=>{
+    
+    try{
+        console.log(req.params.id)
+        const result = await List.find({
+            desk: req.params.deskId
+        });
+        console.log(result);
+  
+         res.json(result);
+         console.log(result);
+    
+    }
+    catch (e) {
+        next(new controlError(e.message,400))
+    }
+  };
 listControllers.findOne = async(req, res, next)=>{
   try {
       let id=req.params.id;
@@ -22,6 +39,7 @@ listControllers.findAll = async(req, res, next)=>{
         next(new controlError(e.message,400))
     }
 };
+
 
 listControllers.create = async(req, res, next)=>{
   try {
