@@ -35,7 +35,7 @@ cardControllers.create = async(req, res, next)=>{
 
 cardControllers.update = async(req, res, next)=>{
   try{
-      let card= await Card.findByIdAndUpdate(req.params.body,req.body,{new:true});
+      let card= await Card.findByIdAndUpdate(req.params.id,req.body,{new:true});
       res.json(card);
   }
   catch (e) {
@@ -46,7 +46,7 @@ cardControllers.update = async(req, res, next)=>{
 
 cardControllers.delete = async(req, res, next)=>{
   try{
-      let card= await Card.findByIdAndRemove(req.params.body,req.body,{new:true});
+      let card= await Card.findByIdAndRemove(req.params.id);
       res.json(card);
   }
   catch (e) {

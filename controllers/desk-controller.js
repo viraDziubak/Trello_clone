@@ -35,7 +35,7 @@ deskControllers.create = async(req, res, next)=>{
 
 deskControllers.update = async(req, res, next)=>{
   try{
-      let desk= await Desk.findByIdAndUpdate(req.params.body,req.body,{new:true});
+      let desk= await Desk.findByIdAndUpdate(req.params.id,req.body,{new:true});
       res.json(desk);
   }
   catch (e) {
@@ -46,7 +46,7 @@ deskControllers.update = async(req, res, next)=>{
 
 deskControllers.delete = async(req, res, next)=>{
   try{
-      let desk= await Desk.findByIdAndRemove(req.params.body,req.body,{new:true});
+      let desk= await Desk.findByIdAndRemove(req.params.id);
       res.json(desk);
   }
   catch (e) {

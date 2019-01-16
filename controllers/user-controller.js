@@ -46,7 +46,7 @@ userControllers.update = async(req, res, next)=>{
 
 userControllers.delete = async(req, res, next)=>{
   try{
-      let user= await User.findByIdAndRemove(req.params.body,req.body,{new:true});
+      let user= await User.findByIdAndRemove(req.params.id);
       res.json(user);
   }
   catch (e) {

@@ -35,7 +35,7 @@ groupControllers.create = async (req, res, next) => {
 
 groupControllers.update = async(req, res, next)=>{
   try {
-      let group = await Group.findByIdAndUpdate(req.params.body,req.body,{new:true});
+      let group = await Group.findByIdAndUpdate(req.params.id,req.body,{new:true});
       res.json(group);
   }
   catch (e) {
@@ -45,7 +45,7 @@ groupControllers.update = async(req, res, next)=>{
 
 groupControllers.delete = async(req, res, next)=>{
   try{
-      let group = await Group.findByIdAndRemove(req.params.body,req.body,{new:true});
+      let group = await Group.findByIdAndRemove(req.params.id);
       res.json(group);
   }
   catch (e) {

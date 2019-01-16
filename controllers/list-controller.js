@@ -3,23 +3,18 @@ let controlError=require('../error/controllerError');
 
 let listControllers = {};
 
-listControllers.findByDeskId = async (req, res, next)=>{
-    
-    try{
-        console.log(req.params.id)
+listControllers.findByDeskId = async (req, res, next) => {
+    try {
         const result = await List.find({
             desk: req.params.deskId
         });
-        console.log(result);
-  
-         res.json(result);
-         console.log(result);
-    
+        res.json(result);    
     }
     catch (e) {
         next(new controlError(e.message,400))
     }
-  };
+};
+
 listControllers.findOne = async(req, res, next)=>{
   try {
       let id=req.params.id;
@@ -53,7 +48,7 @@ listControllers.create = async(req, res, next)=>{
 
 listControllers.update = async(req, res, next)=>{
     try{
-        let list= await List.findByIdAndUpdate(req.params.body,req.body,{new:true});
+        let list = await List.findByIdAndUpdate(req.params.id,req.body,{new:true});
         res.json(list);
     }
     catch (e) {
@@ -64,7 +59,7 @@ listControllers.update = async(req, res, next)=>{
 
 listControllers.delete = async(req, res, next)=>{
   try{
-      let list= await List.findByIdAndRemove(req.params.body,req.body,{new:true});
+      let list= await List.findByIdAndRemove(req.params.id);
       res.json(list);
   }
   catch (e) {
