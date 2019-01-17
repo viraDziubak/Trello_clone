@@ -23,6 +23,18 @@ cardControllers.findAll = async(req, res, next)=>{
   }
 };
 
+cardControllers.findByListId = async (req, res, next) => {
+    try {
+        const result = await Card.find({
+            list: req.params.listId
+        });
+        res.json(result);
+    }
+    catch (e) {
+        next(new controlError(e.message,400))
+    }
+};
+
 cardControllers.create = async(req, res, next)=>{
   try {
       let card= await Card.create(req.body);

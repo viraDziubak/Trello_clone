@@ -10,4 +10,6 @@ router.route('/:id')
   .put(cardControllers.update)
   .delete(cardControllers.delete);
 
+router.route('/listId/:listId').get(cardControllers.findByListId);
+
 module.exports=router;

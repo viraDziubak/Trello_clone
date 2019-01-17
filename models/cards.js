@@ -17,6 +17,10 @@ let CardSchema=new Schema({
     cardsMessage:{
         type:String,
 
+    },
+    list:{
+        type: Schema.ObjectId,
+        ref: 'list'
     }
 });
 
