@@ -14,7 +14,7 @@ let CardSchema=new Schema({
         type:String,
     
     },
-    cardsMessage:{
+    cardMessage:{
         type:String,
 
     },
