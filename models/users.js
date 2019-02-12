@@ -8,13 +8,9 @@ let UserSchema=new Schema({
     },
     email:{
         type:String,
-
-    },
-    desk: {
-        type: Schema.ObjectId,
-        ref: 'desk'
+        unique: true
     }
 });
 
-let model=mongoose.model('user',UserSchema);
-module.exports=model;
+let model = mongoose.model('user', UserSchema);
+module.exports = model;

@@ -1,14 +1,15 @@
 let express = require('express');
 let mongoose = require('mongoose');
-const morgan = require('morgan')
+const morgan = require('morgan');
 let MainRouter=require('./routers/main-router');
 let cors = require('cors');
-let controlError=require('./error/controllerError')
+let controlError=require('./error/controllerError');
+let port = 3000;
 
 mongoose.connect('mongodb://localhost/projectDB', { useNewUrlParser: true});
 
 let app=express();
-app.use(morgan('dev'))
+app.use(morgan('dev'));
 app.use(cors({origin: true}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -27,4 +28,4 @@ app.use((err,req,res,next)=>{
     })
 });
 
- app.listen(3000, ()=> console.log('Listening..'));
+ app.listen(port, ()=> console.log(`Listening on port ${port}..`));
