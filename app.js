@@ -1,12 +1,15 @@
-let express = require('express');
-let mongoose = require('mongoose');
+const express = require('express');
+const mongoose = require('mongoose');
+const passport = require('passport');
 const morgan = require('morgan');
-let MainRouter=require('./routers/main-router');
-let cors = require('cors');
-let controlError=require('./error/controllerError');
-let port = 3000;
+const MainRouter = require('./routers/main-router');
+const cors = require('cors');
+const controlError = require('./error/controllerError');
+const port = 3000;
 
 mongoose.connect('mongodb://localhost/projectDB', { useNewUrlParser: true});
+
+require('./middleware/passport')(passport);
 
 let app=express();
 app.use(morgan('dev'));

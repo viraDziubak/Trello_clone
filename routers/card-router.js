@@ -1,14 +1,15 @@
 let router=require('express').Router();
 let cardControllers = require('../controllers/card-controller');
+const passport = require('passport');
 
 router.route('/')
-  .get(cardControllers.findAll)
-  .post(cardControllers.create);
+  .get(passport.authenticate('jwt', {session: false}), cardControllers.findAll)
+  .post(passport.authenticate('jwt', {session: false}), cardControllers.create);
 
 router.route('/:id')
-  .get(cardControllers.findOne)
-  .put(cardControllers.update)
-  .delete(cardControllers.delete);
+  .get(passport.authenticate('jwt', {session: false}), cardControllers.findOne)
+  .put(passport.authenticate('jwt', {session: false}), cardControllers.update)
+  .delete(passport.authenticate('jwt', {session: false}), cardControllers.delete);
 
 router.route('/listId/:listId').get(cardControllers.findByListId);
 
